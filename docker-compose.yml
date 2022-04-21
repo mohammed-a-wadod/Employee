@@ -1,20 +1,15 @@
 version: "3"
 
 volumes:
-  employeeDB:
-  employee-backend:
+  backend:
 
 services:
-  employee-backend:
-    container_name: employee-backend
-    image: employee-backend
+  employee-backend-h2-db:
+    container_name: employee-backend-h2-db
+    image: employee-backend-h2-db
     build:
       context: .
     ports:
       - "8081:8081"
     volumes:
-      - employee-backend:/var/lib/employee-backend
-
-
-
-
+      - backend:/var/lib/employee-backend
