@@ -21,13 +21,11 @@ services:
       - employeeDB:/var/lib/employeeDB
     # networks:
     #   - employeeNetwork
-
   employee-backend:
     container_name: employee-backend
     image: employee-backend
-    build: 
-      context: ./ 
-      dockerfile: custom-java.dockerfile
+    build:
+      context: .
     environment:
       - MYSQL_HOST=employeeDB
       # - MYSQL_HOST=employeeNetwork
