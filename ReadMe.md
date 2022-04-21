@@ -8,7 +8,7 @@ mvn clean install
 ```
 - After building the app you can run it using the following command inside the project path:
 ```sh
-java -jar target/demo-0.0.1-SNAPSHOT.jar
+java -jar target/employee.jar
 ```
 - This application provide **CRUD** operations for empolyee:
 	- Create\update employee.
@@ -17,3 +17,4 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar
 	- Delete Employee by id.
 
 In order to try the REST APIs, you have to import postman collection ***Employee_APIs.json***  in to postman.
+Also, I added API documentation using swagger, you can check it through [this URL](http://localhost:8081/swagger-ui.html)

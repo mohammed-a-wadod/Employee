@@ -1,0 +1,43 @@
+version: "3"
+
+# networks:
+#   employeeNetwork:
+#     driver: bridge
+
+volumes:
+  employeeDB:
+  employee-backend:
+
+services:
+  employeeDB:
+    image: mysql
+    container_name: employeeDB
+    environment:
+      MYSQL_DATABASE: employee_DB
+      MYSQL_ROOT_PASSWORD: 1001
+    ports:
+      - 3306:3306
+    volumes:
+      - employeeDB:/var/lib/employeeDB
+    # networks:
+    #   - employeeNetwork
+
+  employee-backend:
+    container_name: employee-backend
+    image: employee-backend
+    build: 
+      context: ./ 
+      dockerfile: custom-java.dockerfile
+    environment:
+      - MYSQL_HOST=employeeDB
+      # - MYSQL_HOST=employeeNetwork
+    ports:
+      - "8081:8081"
+    volumes:
+      - employee-backend:/var/lib/employee-backend
+    # networks:
+    #   - employeeNetwork
+
+
+
+
