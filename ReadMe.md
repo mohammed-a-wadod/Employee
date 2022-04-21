@@ -18,3 +18,8 @@ java -jar target/employee.jar
 
 In order to try the REST APIs, you have to import postman collection ***Employee_APIs.json***  in to postman.
 Also, I added API documentation using swagger, you can check it through [this URL](http://localhost:8081/swagger-ui.html)
+
+You want to run the app through **Docker**, you should go to path where ***docker-compose.yml*** is located and run the following command:
+```sh
+docker-compose up -d --remove-orphans --build
+```
