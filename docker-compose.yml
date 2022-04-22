@@ -5,32 +5,33 @@ version: "3"
 #     driver: bridge
 
 volumes:
-  employeeDB:
+  employeeMySql:
   employee-backend:
 
 services:
-  employeeDB:
+  employeeMySql:
     image: mysql
-    container_name: employeeDB
+    container_name: employeeMySql
     environment:
       MYSQL_DATABASE: employee_DB
       MYSQL_ROOT_PASSWORD: 1001
     ports:
       - 3306:3306
     volumes:
-      - employeeDB:/var/lib/employeeDB
+      - employeeMySql:/var/lib/employeeMySql
     # networks:
     #   - employeeNetwork
   employee-backend:
     container_name: employee-backend
-    image: employee-backend
-    build:
-      context: .
+#    image: employee-backend
+    build: .
     environment:
-      - MYSQL_HOST=employeeDB
+      - MYSQL_HOST=employeeMySql
       # - MYSQL_HOST=employeeNetwork
     ports:
       - "8081:8081"
+    links:
+      - employeeMySql
     volumes:
       - employee-backend:/var/lib/employee-backend
     # networks:
