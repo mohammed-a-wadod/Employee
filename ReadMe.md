@@ -25,5 +25,5 @@ docker-compose up -d --remove-orphans --build
 ```
 Or you can pull the image from **DockerHub** by the following command:
 ```sh
-docker pull mwadod/employee-backend-h2-db
+docker run --name employee-backend-h2-db -p 8081:8081 -d mwadod/employee-backen
 ```
